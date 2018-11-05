@@ -5,7 +5,7 @@
 const int KEYSTATE_SIGNIFICANT_BIT = 0x8000;
 constexpr int FIELD_WIDTH = 50;
 constexpr int FIELD_HEIGHT = 30;
-constexpr int SCREEN_WIDTH = 120;
+constexpr int SCREEN_WIDTH = 78;
 constexpr int SCREEN_HEIGHT = 50;
 constexpr int MS_PER_SNAKE_MOVE = 80;
 constexpr int MS_PER_GAME_CYCLE = 10;
@@ -38,17 +38,21 @@ void PropogateMovement(Snake *thisSnake);
 
 void ClearPlayAreaBuffer(unsigned char *playField);
 
+void ClearStatusAreaBuffer(unsigned char *statusArea);
+
 void ClearScreenBuffer(wchar_t *screenBuffer);
 
 void ResetPlayArea(unsigned char *playField, int pelletX, int pelletY);
 
 void RenderSnakeInField(Snake * snake, unsigned char *playField);
 
+void RenderGameOverScreen(int score, unsigned char *playField);
+
 void MoveSnake(Snake *thisSnake);
 
 snakeCollisionResult DetectSnakeCollision(Snake *thisSnake, unsigned char *field);
 
-void RenderFieldToScreenBuffer(unsigned char *playField, wchar_t *screenBuffer);
+void RenderBufferToScreenBuffer(unsigned char *playField, wchar_t *screenBuffer, int width, int height, int startline);
 
 void AddToEndOfSnake(Snake *thisSnake);
 
